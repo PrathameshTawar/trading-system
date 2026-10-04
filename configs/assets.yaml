@@ -1,0 +1,9 @@
+assets:
+  - symbol: RELIANCE
+    sector: energy
+  - symbol: TCS
+    sector: technology
+  - symbol: INFY
+    sector: technology
+  - symbol: HDFCBANK
+    sector: financials

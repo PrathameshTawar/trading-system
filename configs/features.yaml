@@ -1,0 +1,158 @@
+features:
+  # Returns
+  - name: return_1d
+    category: returns
+    lag: 1
+  - name: return_5d
+    category: returns
+    lag: 5
+  - name: return_10d
+    category: returns
+    lag: 10
+  - name: return_20d
+    category: returns
+    lag: 20
+  - name: return_60d
+    category: returns
+    lag: 60
+
+  # Price Structure & Distance
+  - name: distance_from_sma_5
+    category: price_structure
+    lag: 1
+  - name: distance_from_sma_20
+    category: price_structure
+    lag: 1
+  - name: distance_from_sma_50
+    category: price_structure
+    lag: 1
+  - name: distance_from_sma_200
+    category: price_structure
+    lag: 1
+  - name: distance_from_52w_high
+    category: price_structure
+    lag: 1
+  - name: distance_from_52w_low
+    category: price_structure
+    lag: 1
+
+  # Momentum
+  - name: rsi_14
+    category: momentum
+    lag: 1
+  - name: macd
+    category: momentum
+    lag: 1
+  - name: macd_signal
+    category: momentum
+    lag: 1
+  - name: macd_hist
+    category: momentum
+    lag: 1
+  - name: roc_5
+    category: momentum
+    lag: 5
+  - name: roc_10
+    category: momentum
+    lag: 10
+  - name: stoch_k
+    category: momentum
+    lag: 1
+  - name: stoch_d
+    category: momentum
+    lag: 1
+
+  # Volatility
+  - name: std_5
+    category: volatility
+    lag: 5
+  - name: std_10
+    category: volatility
+    lag: 10
+  - name: std_20
+    category: volatility
+    lag: 20
+  - name: std_60
+    category: volatility
+    lag: 60
+  - name: downside_volatility_20
+    category: volatility
+    lag: 20
+  - name: atr_14
+    category: volatility
+    lag: 14
+
+  # Volume
+  - name: volume_change
+    category: volume
+    lag: 1
+  - name: volume_zscore
+    category: volume
+    lag: 1
+  - name: obv
+    category: volume
+    lag: 1
+  - name: volume_price_trend
+    category: volume
+    lag: 1
+
+  # Cross Asset
+  - name: relative_return_vs_benchmark
+    category: cross_asset
+    lag: 1
+  - name: market_relative_strength
+    category: cross_asset
+    lag: 1
+  - name: rolling_beta
+    category: cross_asset
+    lag: 20
+  - name: correlation_to_market
+    category: cross_asset
+    lag: 20
+  - name: market_regime
+    category: cross_asset
+    lag: 1
+
+  # Financial NLP & Multilingual Indic Signals
+  - name: sentiment_1d
+    category: nlp
+    lag: 1
+  - name: sentiment_3d_mean
+    category: nlp
+    lag: 3
+  - name: sentiment_7d_mean
+    category: nlp
+    lag: 7
+  - name: sentiment_30d_mean
+    category: nlp
+    lag: 30
+  - name: sentiment_change
+    category: nlp
+    lag: 1
+  - name: sentiment_acceleration
+    category: nlp
+    lag: 2
+  - name: sentiment_zscore
+    category: nlp
+    lag: 30
+  - name: positive_news_ratio
+    category: nlp
+    lag: 5
+  - name: negative_news_ratio
+    category: nlp
+    lag: 5
+  - name: risk_mentions
+    category: nlp
+    lag: 5
+  - name: revenue_mentions
+    category: nlp
+    lag: 5
+  - name: management_confidence
+    category: nlp
+    lag: 5
+  - name: indic_sentiment_7d
+    category: nlp_indic
+    lag: 7
+  - name: indic_risk_mentions_7d
+    category: nlp_indic
+    lag: 7

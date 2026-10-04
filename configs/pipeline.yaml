@@ -1,0 +1,7 @@
+target_col: future_return_5d
+timestamp_col: timestamp
+symbol_col: symbol
+min_ic: 0.01
+max_corr: 0.95
+n_splits: 3
+selected_limit: 10

@@ -1,0 +1,196 @@
+{
+  "total_candidate_features": 65,
+  "quality_filtered_features": 49,
+  "walk_forward_metrics": {
+    "ic": 0.004238097523565146,
+    "ic_tstat": 0.3834308141460305,
+    "ic_ci_low": -1.7331344996716833,
+    "ic_ci_high": 1.4822266995315156
+  },
+  "baseline_vs_full_comparison": [
+    {
+      "Metric": "Information Coefficient (IC)",
+      "Equal Weight": "N/A (Constant)",
+      "12-1 Momentum": -0.0013053702902970856,
+      "5-Day Reversal": 0.03897053658410169,
+      "Low-Turnover Reversal": 0.01897758578388467,
+      "OHLCV Baseline": 4.436653090470741e-05,
+      "Full Model": 0.004238097523565146
+    },
+    {
+      "Metric": "Newey-West t-stat",
+      "Equal Weight": "N/A (Constant)",
+      "12-1 Momentum": -0.1030830520112055,
+      "5-Day Reversal": 3.938123092682757,
+      "Low-Turnover Reversal": 1.7679456736144128,
+      "OHLCV Baseline": 0.005729020716646479,
+      "Full Model": 0.3834308141460305
+    },
+    {
+      "Metric": "Strategy Sharpe Ratio (Net)",
+      "Equal Weight": 1.1503422556145415,
+      "12-1 Momentum": 1.0061948005721078,
+      "5-Day Reversal": 0.5691970378732619,
+      "Low-Turnover Reversal": 0.7268738072212358,
+      "OHLCV Baseline": 0.6059222047137373,
+      "Full Model": 0.9512859038643793
+    },
+    {
+      "Metric": "Deflated Sharpe Ratio (DSR @ 41 trials)",
+      "Equal Weight": 0.9190950775655677,
+      "12-1 Momentum": 0.8751906148157849,
+      "5-Day Reversal": 0.6031278917096212,
+      "Low-Turnover Reversal": 0.7196704411285755,
+      "OHLCV Baseline": 0.6175659907197965,
+      "Full Model": 0.8189283984617726
+    },
+    {
+      "Metric": "Deflated Sharpe Ratio (DSR @ 100 trials)",
+      "Equal Weight": 0.8976917717038948,
+      "12-1 Momentum": 0.8453160447861332,
+      "5-Day Reversal": 0.5507244398109503,
+      "Low-Turnover Reversal": 0.6727458392117278,
+      "OHLCV Baseline": 0.5713198340125243,
+      "Full Model": 0.7861685248443205
+    },
+    {
+      "Metric": "Deflated Sharpe Ratio (DSR @ 200 trials)",
+      "Equal Weight": 0.8802013384804104,
+      "12-1 Momentum": 0.8214852047541011,
+      "5-Day Reversal": 0.5129737517056636,
+      "Low-Turnover Reversal": 0.6376791991501538,
+      "OHLCV Baseline": 0.5378903553094222,
+      "Full Model": 0.7609868442057627
+    },
+    {
+      "Metric": "Max Drawdown (%)",
+      "Equal Weight": -0.16758113614845066,
+      "12-1 Momentum": -0.21388399064290065,
+      "5-Day Reversal": -0.18176904162034388,
+      "Low-Turnover Reversal": -0.22035277047973467,
+      "OHLCV Baseline": -0.20143232415731102,
+      "Full Model": -0.2064643440677062
+    },
+    {
+      "Metric": "Portfolio Turnover",
+      "Equal Weight": 0.0,
+      "12-1 Momentum": 0.13809523809523813,
+      "5-Day Reversal": 1.2171428571428573,
+      "Low-Turnover Reversal": 0.571904761904762,
+      "OHLCV Baseline": 1.23424023325154,
+      "Full Model": 0.4690113631842955
+    }
+  ],
+  "cost_sensitivity_table": [
+    {
+      "Transaction Cost (bps)": "0.00 bps",
+      "Equal Weight": 1.1503422556145415,
+      "12-1 Momentum": 1.0862782139447622,
+      "5-Day Reversal": 1.1490857552079567,
+      "Low-Turnover Reversal": 0.9862554278754772,
+      "Full Model": 1.1960349973415818
+    },
+    {
+      "Transaction Cost (bps)": "5.00 bps",
+      "Equal Weight": 1.1503422556145415,
+      "12-1 Momentum": 1.0568891458960161,
+      "5-Day Reversal": 0.9359956673375024,
+      "Low-Turnover Reversal": 0.8909644332703501,
+      "Full Model": 1.106220220371106
+    },
+    {
+      "Transaction Cost (bps)": "10.00 bps",
+      "Equal Weight": 1.1503422556145415,
+      "12-1 Momentum": 1.0274685772699976,
+      "5-Day Reversal": 0.7230019727670695,
+      "Low-Turnover Reversal": 0.7956855536139413,
+      "Full Model": 1.0163039427658163
+    },
+    {
+      "Transaction Cost (bps)": "13.61 bps",
+      "Equal Weight": 1.1503422556145415,
+      "12-1 Momentum": 1.0062081152581777,
+      "5-Day Reversal": 0.5692932442769582,
+      "Low-Turnover Reversal": 0.726916850642669,
+      "Full Model": 0.9513265964980779
+    },
+    {
+      "Transaction Cost (bps)": "20.00 bps",
+      "Equal Weight": 1.1503422556145415,
+      "12-1 Momentum": 0.9685384113060743,
+      "5-Day Reversal": 0.2973944085106083,
+      "Low-Turnover Reversal": 0.6052711836704615,
+      "Full Model": 0.8362045551350215
+    },
+    {
+      "Transaction Cost (bps)": "25.00 bps",
+      "Equal Weight": 1.1503422556145415,
+      "12-1 Momentum": 0.9390315657637122,
+      "5-Day Reversal": 0.0848256384287519,
+      "Low-Turnover Reversal": 0.5101888586037738,
+      "Full Model": 0.7460403924568005
+    }
+  ],
+  "sharpe_bootstrap_results": {
+    "full_vs_eq": {
+      "diff_sharpe": -0.026766946258416247,
+      "p_value": 0.96,
+      "ci_low": -1.7331344996716833,
+      "ci_high": 1.4822266995315156
+    },
+    "reversal_vs_eq": {
+      "diff_sharpe": -0.5811452177412796,
+      "p_value": 0.0,
+      "ci_low": -0.9600600232486767,
+      "ci_high": -0.2499702021516507
+    },
+    "reversal_lt_vs_eq": {
+      "diff_sharpe": -0.42346844839330566,
+      "p_value": 0.004,
+      "ci_low": -0.7122923639906111,
+      "ci_high": -0.15208972624704045
+    }
+  },
+  "frozen_holdout_metrics": {
+    "holdout_start": "2026-01-01 00:00:00",
+    "holdout_end": "2026-10-01 00:00:00",
+    "holdout_ic": -0.029240722996113556,
+    "holdout_sharpe_full": -1.3710032640554215,
+    "holdout_sharpe_eq": -0.5481385701676118,
+    "holdout_max_dd_full": -0.1600954814246942
+  },
+  "indic_news_ablation": {
+    "ic_with_sentiment": 0.004238097523565146,
+    "ic_without_sentiment": 0.009164436765864164,
+    "sharpe_with_sentiment": 0.9512859038643793,
+    "sharpe_without_sentiment": 1.0833060195471407
+  },
+  "trial_log_summary": {
+    "n_trials": 55,
+    "sr_trials_var": 0.04,
+    "dsr_multi": {
+      "dsr_41": 0.8189283984617726,
+      "dsr_100": 0.7861685248443205,
+      "dsr_200": 0.7609868442057627
+    }
+  },
+  "ic_by_year": {
+    "2022": -0.009636443682679104,
+    "2023": 0.04782927096243065,
+    "2024": -0.06510590403365064,
+    "2025": 0.03542782046002081
+  },
+  "backtest_results": {
+    "sharpe": 0.0,
+    "sortino": 0.0,
+    "deflated_sharpe": 0.0,
+    "dsr_41": 0.0,
+    "dsr_100": 0.0,
+    "dsr_200": 0.0,
+    "max_drawdown": 0.0,
+    "turnover": 0.0,
+    "hit_rate": 0.0,
+    "cumulative_return": 0.0,
+    "net_returns": "Series([], dtype: float64)"
+  }
+}
