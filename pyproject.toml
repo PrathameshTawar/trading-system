@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "signalforge"
+version = "1.0.0"
+description = "Leak-Free Institutional Quantitative Feature Engineering & Portfolio Pipeline"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "SignalForge Quantitative Engineering Team" }
+]
+dependencies = [
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "scikit-learn>=1.2.0",
+    "yfinance>=0.2.28",
+    "joblib>=1.3.0",
+    "python-docx>=1.0.0",
+    "statsmodels>=0.14.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "black>=23.7.0",
+    "flake8>=6.1.0"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["signalforge*"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-v --strict-markers"
+testpaths = ["tests"]
+pythonpath = ["."]
