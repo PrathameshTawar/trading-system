@@ -8,9 +8,11 @@ from signalforge.data import generate_synthetic_market_data
 from signalforge.ingestion.csv_loader import load_market_csvs
 from signalforge.ingestion.market_data import DEFAULT_SYMBOLS, download_nse_daily, save_market_csv
 from signalforge.live.artifacts import load_bundle
+from signalforge.live.ledger_sync import export_ledger_to_csv
 from signalforge.live.paper import load_ledger, paper_step, save_ledger
 from signalforge.live.score import score_universe, write_signals
 from signalforge.live.train import train_production_model
+from signalforge.mcp_server import run_stdio_mcp_server
 from signalforge.pipelines.daily_pipeline import DailyPipeline
 
 
@@ -158,6 +160,55 @@ def cmd_live_day(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_mcp(args: argparse.Namespace) -> int:
+    run_stdio_mcp_server()
+    return 0
+
+
+def cmd_sync_ledger(args: argparse.Namespace) -> int:
+    out = export_ledger_to_csv(args.ledger, args.csv_path)
+    print(f"Exported ledger state from {args.ledger} to {out}")
+    return 0
+
+
+def cmd_quant_step(args: argparse.Namespace) -> int:
+    """Executes single automated daily quant desk step."""
+    if args.fetch:
+        symbols = _parse_symbols(args.symbols)
+        market = download_nse_daily(symbols=symbols, period=args.period)
+        save_market_csv(market, args.input)
+    else:
+        market = load_market_csvs(args.input)
+
+    bundle = load_bundle(args.model_dir)
+    signals, drift_reports, high_drift = score_universe(market, bundle)
+    if high_drift:
+        signals["weight"] = 0.0
+        print("HIGH feature drift detected; flattening weights to cash.")
+
+    signal_path = write_signals(signals, args.output_dir)
+    desk_path = Path("desk/signals.csv")
+    desk_path.parent.mkdir(parents=True, exist_ok=True)
+    signals.to_csv(desk_path, index=False)
+
+    ledger = load_ledger(args.ledger, starting_cash=args.starting_cash, cost_bps=bundle.cost_bps)
+    ledger = paper_step(market, ledger, signals, max_drawdown_pause=bundle.max_drawdown_pause)
+    save_ledger(ledger, args.ledger)
+    export_ledger_to_csv(ledger, args.csv_ledger)
+
+    print(json.dumps({
+        "status": "success",
+        "signal_file": str(signal_path),
+        "desk_signals": str(desk_path),
+        "desk_ledger": args.csv_ledger,
+        "equity": ledger.get("last_equity"),
+        "cash": ledger.get("cash"),
+        "paused": ledger.get("paused"),
+        "drift": drift_reports
+    }, indent=2, default=str))
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="SignalForge: Multi-Asset Feature Engineering & Selection Platform")
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -226,6 +277,26 @@ def build_parser() -> argparse.ArgumentParser:
     live_parser.add_argument("--symbols", type=str, default=default_symbols)
     live_parser.add_argument("--period", type=str, default="2y")
     live_parser.set_defaults(func=cmd_live_day)
+
+    mcp_parser = subparsers.add_parser("mcp", help="Run SignalForge JSON-RPC MCP Server on stdio")
+    mcp_parser.set_defaults(func=cmd_mcp)
+
+    sync_parser = subparsers.add_parser("sync-ledger", help="Sync paper/ledger.json to desk/paper-ledger.csv")
+    sync_parser.add_argument("--ledger", type=str, default="paper/ledger.json")
+    sync_parser.add_argument("--csv-path", type=str, default="desk/paper-ledger.csv")
+    sync_parser.set_defaults(func=cmd_sync_ledger)
+
+    quant_parser = subparsers.add_parser("quant-step", help="Run full quant step: fetch, score, write desk/signals.csv & desk/paper-ledger.csv")
+    quant_parser.add_argument("--input", type=str, default="data/eod.csv")
+    quant_parser.add_argument("--model-dir", type=str, default="models")
+    quant_parser.add_argument("--output-dir", type=str, default="signals")
+    quant_parser.add_argument("--ledger", type=str, default="paper/ledger.json")
+    quant_parser.add_argument("--csv-ledger", type=str, default="desk/paper-ledger.csv")
+    quant_parser.add_argument("--starting-cash", type=float, default=1_000_000.0)
+    quant_parser.add_argument("--fetch", action="store_true", help="Download fresh NSE EOD before scoring")
+    quant_parser.add_argument("--symbols", type=str, default=default_symbols)
+    quant_parser.add_argument("--period", type=str, default="2y")
+    quant_parser.set_defaults(func=cmd_quant_step)
 
     return parser
 
