@@ -1,0 +1,19 @@
+mode: paper_only
+balance: 1000000.0        # INR starting capital
+watchlist:
+  - RELIANCE
+  - TCS
+  - HDFCBANK
+  - INFY
+  - SBIN
+  - ICICIBANK
+  - BHARTIARTL
+  - LT
+  - ITC
+  - KOTAKBANK
+max_size_pct: 5.0
+max_loss_pct: 1.0
+daily_loss_limit_pct: 2.0
+max_cards_per_day: 3
+min_price: 50.0
+embargo_days: 1
