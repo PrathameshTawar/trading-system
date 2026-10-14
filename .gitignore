@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.deepeval/
+
+# Environments
+.venv
+v-env
+env/
+venv/
+ENV/
+
+# Data & Models (keep sample data)
+data/eod.csv
+data/standardized_market.csv
+models/*.joblib
+models/reference_features.csv
+paper/ledger.json
+signals/today.csv
+signals/*.csv
+results/*.json
+scratch/
+
+# IDE & OS
+.DS_Store
+.vscode/
+.idea/

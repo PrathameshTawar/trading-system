@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SignalForge Quant Desk - Executive Institutional Dashboard</title>
+  <link rel="stylesheet" href="/web/styles.css">
+</head>
+<body>
+
+<div class="dashboard-container">
+  
+  <!-- Header Bar -->
+  <header class="header-bar">
+    <div class="brand">
+      <div class="brand-icon">⚡</div>
+      <div>
+        <h1 class="brand-title">SIGNALFORGE QUANT DESK</h1>
+        <div class="brand-subtitle">Scale-Free Feature Selection & Multi-Asset Paper Trading Engine</div>
+      </div>
+    </div>
+    
+    <div class="status-pills">
+      <div class="pill">
+        <span class="pill-dot"></span>
+        GROK BOT CLOUD: ACTIVE
+      </div>
+      <div class="pill">
+        <span class="pill-dot"></span>
+        MCP SERVER: RUNNING
+      </div>
+      <div class="pill">
+        <span class="pill-dot warning"></span>
+        DRIFT: MONITORING
+      </div>
+      <button class="btn btn-primary" id="trigger-step-btn">⚡ Run Quant Step</button>
+    </div>
+  </header>
+
+  <!-- Top Metrics Cards Grid -->
+  <section class="metrics-grid">
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Portfolio Equity</span>
+        <span class="badge badge-green">+1.20% Net</span>
+      </div>
+      <div class="card-value">₹1,000,000.00</div>
+      <div class="card-subtext">Peak: ₹1,000,000.00 &bull; Base: ₹1,000,000.00</div>
+      <div class="sparkline-container">
+        <canvas id="return-chart"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Available Cash</span>
+        <span class="badge badge-cyan">Settled</span>
+      </div>
+      <div class="card-value">₹1,000,000.00</div>
+      <div class="card-subtext">100.0% Cash Position Allocation</div>
+      <div class="sparkline-container">
+        <canvas id="equity-chart"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Quant Out-of-Sample IC</span>
+        <span class="badge badge-cyan">5-Yr Walk-Forward</span>
+      </div>
+      <div class="card-value">+0.0042</div>
+      <div class="card-subtext">Newey-West t-stat: 0.38 &bull; Holdout: -0.0292</div>
+      <div class="sparkline-container" style="display:flex; align-items:center; color: var(--text-muted); font-size:12px;">
+        Weight Policy: Research Input Only (0% Alloc)
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Active Signals / Universe</span>
+        <span class="badge badge-cyan">NSE 50 Liquid</span>
+      </div>
+      <div class="card-value"><span id="active-signals-count">4</span> / <span id="total-universe-count">50</span></div>
+      <div class="card-subtext">Max Weight Cap: 20.0% Per Name</div>
+      <div class="sparkline-container">
+        <canvas id="drift-chart"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Grid -->
+  <section class="main-grid">
+    
+    <!-- Left Column: Signal Matrix & Ledger -->
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      
+      <!-- Live Signal Matrix Card -->
+      <div class="card">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Live Signal Matrix (desk/signals.csv)</h2>
+            <div style="font-size:12px; color: var(--text-muted);">Scored via Frozen Production Model Bundle</div>
+          </div>
+          <div style="display:flex; gap:10px;">
+            <input type="text" id="symbol-search" class="form-control" placeholder="Search Ticker (e.g. RELIANCE, MARUTI)..." style="width: 220px;">
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table class="custom-table">
+            <thead>
+              <tr>
+                <th>Symbol</th>
+                <th>Last Close</th>
+                <th>Predicted Return</th>
+                <th>Target Weight</th>
+                <th>Allocation Status</th>
+                <th>Execution</th>
+                <th>Signal Date</th>
+              </tr>
+            </thead>
+            <tbody id="signals-tbody">
+              <!-- Populated dynamically via app.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Desk Paper Trading Ledger Card -->
+      <div class="card">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Paper Trading Ledger (desk/paper-ledger.csv)</h2>
+            <div style="font-size:12px; color: var(--text-muted);">Synchronized Cash & Position State</div>
+          </div>
+          <span class="badge badge-green">LIVE SYNC</span>
+        </div>
+
+        <div class="table-container">
+          <table class="custom-table">
+            <thead>
+              <tr>
+                <th>Asset Symbol</th>
+                <th>Quantity</th>
+                <th>Avg Fill Price</th>
+                <th>Position Notional</th>
+                <th>Cash Balance</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="ledger-tbody">
+              <!-- Populated dynamically via app.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right Column: Bot Group Roles, Skeptic Gate, Console -->
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      
+      <!-- Bot Group Desk Roles Card -->
+      <div class="card">
+        <h2 class="section-title" style="margin-bottom: 14px;">Desk Bot Group Roles (7 Active)</h2>
+        
+        <div class="bot-item">
+          <div class="bot-info">
+            <div class="bot-avatar">C</div>
+            <div>
+              <div class="bot-name">Chief</div>
+              <div class="bot-role">Desk Lead & Cloud Runner</div>
+            </div>
+          </div>
+          <span class="badge badge-green">RUNNING</span>
+        </div>
+
+        <div class="bot-item">
+          <div class="bot-info">
+            <div class="bot-avatar" style="color: var(--accent-cyan);">Q</div>
+            <div>
+              <div class="bot-name">Quant (SignalForge)</div>
+              <div class="bot-role">Feature Selection & Scoring</div>
+            </div>
+          </div>
+          <span class="badge badge-cyan">ACTIVE</span>
+        </div>
+
+        <div class="bot-item">
+          <div class="bot-info">
+            <div class="bot-avatar" style="color: var(--accent-pink);">S</div>
+            <div>
+              <div class="bot-name">Skeptic</div>
+              <div class="bot-role">Freshness Gate (&le;1 Trading Day)</div>
+            </div>
+          </div>
+          <span class="badge badge-pink">GUARDRAIL</span>
+        </div>
+
+        <div class="bot-item">
+          <div class="bot-info">
+            <div class="bot-avatar">R</div>
+            <div>
+              <div class="bot-name">Risk Manager</div>
+              <div class="bot-role">Drawdown & Turnover Cap</div>
+            </div>
+          </div>
+          <span class="badge badge-green">ACTIVE</span>
+        </div>
+      </div>
+
+      <!-- Skeptic & Quant Rules Viewer -->
+      <div class="card">
+        <h2 class="section-title" style="margin-bottom: 10px;">Desk Operating Rules (desk/my-rules.md)</h2>
+        <div id="rules-box" class="console-box" style="height: 140px; color: var(--text-secondary); white-space: pre-wrap;">
+Loading desk rules...
+        </div>
+      </div>
+
+      <!-- Live Execution Log Console -->
+      <div class="card">
+        <h2 class="section-title" style="margin-bottom: 10px;">MCP Server / Execution Console</h2>
+        <div id="live-console" class="console-box">
+[SYSTEM] SignalForge MCP Server listening on stdio (JSON-RPC 2.0)...<br>
+[SYSTEM] Registered tools: fetch_eod, score_universe, get_paper_status, sync_desk_ledger<br>
+[SYSTEM] Quant Desk ready for lead scoring.
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Pricing / Tier Plan Section - Jet Black Glossy Shine -->
+  <section class="pricing-section">
+    <div class="pricing-header">
+      <h2 class="pricing-title">Choose Your Plan</h2>
+      <p class="pricing-subtitle">Select the tier that best fits your computational & trading desk needs.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-card-header">
+          <div class="pricing-plan-name">Free</div>
+          <div class="pricing-price">$0 <span>/month</span></div>
+          <p style="font-size: 12px; color: var(--text-muted);">Perfect for getting started with paper research</p>
+        </div>
+        <ul class="pricing-features">
+          <li>Up to 10 NSE stock tickers</li>
+          <li>Daily EOD price bar downloads</li>
+          <li>Basic technical feature selection</li>
+          <li>100MB signal storage</li>
+        </ul>
+        <button class="btn btn-secondary" style="width: 100%;">Get Started</button>
+      </div>
+
+      <div class="pricing-card popular">
+        <div class="pricing-card-header">
+          <div class="pricing-plan-name">
+            Pro
+            <span class="badge badge-cyan">MOST POPULAR</span>
+          </div>
+          <div class="pricing-price">$19 <span>/month</span></div>
+          <p style="font-size: 12px; color: var(--text-muted);">Best for active quant researchers & bot desks</p>
+        </div>
+        <ul class="pricing-features">
+          <li>Unlimited stock & crypto universes</li>
+          <li>Nested walk-forward ML models</li>
+          <li>Indic news sentiment feature engineering</li>
+          <li>Full MCP server integration & API access</li>
+          <li>Automated daily desk ledger sync</li>
+        </ul>
+        <button class="btn btn-primary" style="width: 100%;">Choose Pro</button>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-card-header">
+          <div class="pricing-plan-name">Team</div>
+          <div class="pricing-price">$49 <span>/month</span></div>
+          <p style="font-size: 12px; color: var(--text-muted);">For multi-bot trading desks & teams</p>
+        </div>
+        <ul class="pricing-features">
+          <li>Everything in Pro</li>
+          <li>7 Bot group desk roles (Chief, Quant, Skeptic)</li>
+          <li>Dedicated cloud computer execution</li>
+          <li>López de Prado DSR & bootstrap inference</li>
+          <li>White-label report generation</li>
+        </ul>
+        <button class="btn btn-secondary" style="width: 100%;">Choose Team</button>
+      </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 24px; font-size: 11px; color: var(--text-muted);">
+      All plans include 14-day free trial &bull; Jet Black Metallic Glow & Glossy Finish
+    </div>
+  </section>
+
+</div>
+
+<script src="/web/app.js"></script>
+</body>
+</html>

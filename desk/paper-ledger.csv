@@ -1,0 +1,2 @@
+timestamp,symbol,quantity,avg_price,notional,equity,cash,peak_equity,paused,pause_reason
+2026-10-09 23:25:29,CASH,0,1.0,1000000.0,1000000.0,1000000.0,1000000.0,False,
