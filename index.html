@@ -3,10 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SignalForge Quant Desk - Executive Institutional Dashboard</title>
+  <title>SignalForge Quant Desk — Autonomous Multi-Asset Alpha Engine</title>
+  <!-- High-Tech Glowing Purple/Cyan SVG Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%238a2be2'/><stop offset='50%' stop-color='%23c084fc'/><stop offset='100%' stop-color='%2300f2fe'/></linearGradient></defs><rect width='100' height='100' rx='28' fill='url(%23g)'/><path d='M50 18 L68 45 L54 45 L62 82 L34 50 L48 50 Z' fill='%23ffffff'/></svg>">
   <link rel="stylesheet" href="./web/styles.css">
 </head>
 <body>
+
+<!-- Ambient Glow Orbs for Over-The-Top Aesthetics -->
+<div class="ambient-glow-orb ambient-glow-orb-1"></div>
+<div class="ambient-glow-orb ambient-glow-orb-2"></div>
 
 <div class="dashboard-container">
   
@@ -33,12 +39,54 @@
         <span class="pill-dot warning"></span>
         DRIFT: MONITORING
       </div>
-      <button class="btn btn-primary" id="trigger-step-btn">⚡ Run Quant Step</button>
+      <button class="btn btn-primary btn-pill pulse-glow" id="trigger-step-btn">⚡ Run Quant Step</button>
     </div>
   </header>
 
+  <!-- Vague Hero Section with Em-Dashes & Emoji Icons -->
+  <section class="hero-section scroll-reveal">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      ✨ Next-Gen Neural Alpha Paradigm — Autonomous Synergy v4.2 🚀
+    </div>
+    <h1 class="hero-title">
+      Hyper-Dimensional Quant Intelligence — Engineered for Unstoppable Multi-Asset Alpha Dominance ⚡🔮
+    </h1>
+    <p class="hero-subtitle">
+      Harnessing scale-free in-fold feature matrices — non-linear probabilistic latent spaces — and quantum-calibrated risk orchestration to extract frictionless liquidity at the intersection of intelligence and markets 💎🧠📈
+    </p>
+    <div class="hero-actions">
+      <button class="btn btn-primary btn-pill pulse-glow" id="hero-cta-btn">
+        🚀 Launch Autonomous Desk — Zero Friction
+      </button>
+      <button class="btn btn-secondary btn-pill" id="hero-conditions-btn">
+        📜 Explore Mathematical Proofs — Read Conditions
+      </button>
+    </div>
+  </section>
+
+  <!-- Fake Metrics Matrix (The Quant Matrix) -->
+  <section class="fake-matrix-section scroll-reveal">
+    <div class="matrix-card">
+      <div class="matrix-val">99.98% 🎯</div>
+      <div class="matrix-label">Cross-Dimensional Directional Win Rate — Verified by Synthetic Monte Carlo</div>
+    </div>
+    <div class="matrix-card">
+      <div class="matrix-val">₹42.8T ✨</div>
+      <div class="matrix-label">Theoretical Notional Liquidity Synthesized Across Parallel Universes</div>
+    </div>
+    <div class="matrix-card">
+      <div class="matrix-val">0.00001ms ⚡</div>
+      <div class="matrix-label">Sub-Planckian Feature Inference Latency — Zero Cache Misses</div>
+    </div>
+    <div class="matrix-card">
+      <div class="matrix-val">0.00% 🛡️</div>
+      <div class="matrix-label">Maximum Historical Drawdown Guaranteed by Autonomous Skeptic Gate</div>
+    </div>
+  </section>
+
   <!-- Top Metrics Cards Grid -->
-  <section class="metrics-grid">
+  <section class="metrics-grid scroll-reveal">
     <div class="card">
       <div class="card-header">
         <span class="card-title">Portfolio Equity</span>
@@ -68,8 +116,8 @@
         <span class="card-title">Quant Out-of-Sample IC</span>
         <span class="badge badge-cyan">5-Yr Walk-Forward</span>
       </div>
-      <div class="card-value">+0.0042</div>
-      <div class="card-subtext">Newey-West t-stat: 0.38 &bull; Holdout: -0.0292</div>
+      <div class="card-value">+0.0031</div>
+      <div class="card-subtext">Newey-West t-stat: 0.29 &bull; Holdout: -0.0192</div>
       <div class="sparkline-container" style="display:flex; align-items:center; color: var(--text-muted); font-size:12px;">
         Weight Policy: Research Input Only (0% Alloc)
       </div>
@@ -89,13 +137,13 @@
   </section>
 
   <!-- Main Content Grid -->
-  <section class="main-grid">
+  <section class="main-grid scroll-reveal">
     
     <!-- Left Column: Signal Matrix & Ledger -->
     <div style="display: flex; flex-direction: column; gap: 20px;">
       
       <!-- Live Signal Matrix Card -->
-      <div class="card">
+      <div class="card" id="signals-section">
         <div class="section-header">
           <div>
             <h2 class="section-title">Live Signal Matrix (desk/signals.csv)</h2>
@@ -231,8 +279,74 @@ Loading desk rules...
 
   </section>
 
-  <!-- Pricing / Tier Plan Section - Jet Black Glossy Shine -->
-  <section class="pricing-section">
+  <!-- Read More Conditions Accordion -->
+  <section class="read-conditions-card scroll-reveal" id="conditions-accordion-section">
+    <div class="conditions-header" id="toggle-conditions-btn">
+      <span>📜 Read More Conditions, Risk Disclosures & Mathematical Caveats — Click to Expand</span>
+      <span class="accordion-arrow" id="accordion-arrow-icon">▼</span>
+    </div>
+    <div class="conditions-content" id="conditions-body">
+      <p><strong>Condition 1.1 — Probabilistic Non-Euclidean Alpha:</strong> All reported returns are evaluated under strict walk-forward in-fold cross validation with an embargo of 6 trading days. Past performance does not guarantee future lambos or risk-neutral bliss.</p>
+      <p><strong>Condition 1.2 — Skeptic Engine Hard Gating:</strong> The Skeptic bot reserves the sovereign prerogative to hard-gate all execution if data freshness exceeds 1 trading day, if label drift exceeds PSI 0.25, or if statistical significance p-value exceeds 0.05.</p>
+      <p><strong>Condition 1.3 — Indian Statutory Cost Drag:</strong> Realistic statutory drag of 13.61 bps is deducted per trade cycle (comprising STT, SEBI turnover fees, stamp duty, exchange transaction charges, and GST). Slippage is modeled under square-root Kyle lambda dynamics.</p>
+      <p><strong>Condition 1.4 — Scale-Free Feature Invariance:</strong> Price features (including MACD) are normalized by spot close to ensure strict mathematical scale-invariance across stock splits, bonus issuances, and nominal price levels.</p>
+    </div>
+  </section>
+
+  <!-- Fake Testimonial Reviews Section (Em-Dashes & 5-Star Ratings) -->
+  <section class="fake-reviews-section scroll-reveal">
+    <div class="reviews-header">
+      <h2 class="reviews-title">What Wall Street Quants Are Saying — Verified Reviews & Endorsements</h2>
+      <p style="font-size: 13px; color: var(--text-muted);">Real testimonials from algorithmic trading firms across the metaverse.</p>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <p class="review-quote">
+          "SignalForge transformed our 5-day walk-forward Sharpe from -0.82 to +9.41 overnight — simply transcendental. The in-fold embargo purging and date-aligned bootstrap are truly otherworldly."
+        </p>
+        <div class="review-author">
+          <div class="author-avatar">AV</div>
+          <div>
+            <div class="author-name">Dr. Alistair Vance</div>
+            <div class="author-role">Former Head of Quantitative Sorcery — Apex Capital</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <p class="review-quote">
+          "We deployed the scale-free MACD normalization and saved our algorithmic fund $420M in single-day statistical leakage — unmatched elegance, zero lookahead bias."
+        </p>
+        <div class="review-author">
+          <div class="author-avatar" style="background: linear-gradient(135deg, #00f2fe, #4f46e5);">ER</div>
+          <div>
+            <div class="author-name">Elena Rostova</div>
+            <div class="author-role">Chief Autonomous Risk Architect — Synthetix Vault</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <p class="review-quote">
+          "It is not merely an algorithmic backtesting model — it is an enlightened neural consciousness for frictionless cross-asset liquidity extraction."
+        </p>
+        <div class="review-author">
+          <div class="author-avatar" style="background: linear-gradient(135deg, #ff2a5f, #7928ca);">CS</div>
+          <div>
+            <div class="author-name">Chadwick 'Alpha' Sterling</div>
+            <div class="author-role">Managing Partner — High-Frequency Quant Guild</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing / Tier Plan Section - Purple Gradient Pill Buttons -->
+  <section class="pricing-section scroll-reveal">
     <div class="pricing-header">
       <h2 class="pricing-title">Choose Your Plan</h2>
       <p class="pricing-subtitle">Select the tier that best fits your computational & trading desk needs.</p>
@@ -251,7 +365,7 @@ Loading desk rules...
           <li>Basic technical feature selection</li>
           <li>100MB signal storage</li>
         </ul>
-        <button class="btn btn-secondary" style="width: 100%;">Get Started</button>
+        <button class="btn btn-secondary btn-pill" style="width: 100%;">Get Started</button>
       </div>
 
       <div class="pricing-card popular">
@@ -270,7 +384,7 @@ Loading desk rules...
           <li>Full MCP server integration & API access</li>
           <li>Automated daily desk ledger sync</li>
         </ul>
-        <button class="btn btn-primary" style="width: 100%;">Choose Pro</button>
+        <button class="btn btn-primary btn-pill" style="width: 100%;">Choose Pro</button>
       </div>
 
       <div class="pricing-card">
@@ -286,7 +400,7 @@ Loading desk rules...
           <li>López de Prado DSR & bootstrap inference</li>
           <li>White-label report generation</li>
         </ul>
-        <button class="btn btn-secondary" style="width: 100%;">Choose Team</button>
+        <button class="btn btn-secondary btn-pill" style="width: 100%;">Choose Team</button>
       </div>
     </div>
     
@@ -295,6 +409,52 @@ Loading desk rules...
     </div>
   </section>
 
+  <!-- Institutional Footer with Privacy Policy & Terms Links -->
+  <footer class="desk-footer">
+    <div class="footer-links">
+      <a href="#privacy" id="open-privacy-link">🔒 Privacy Policy</a>
+      <span class="footer-separator">•</span>
+      <a href="#terms" id="open-terms-link">📜 Terms of Algorithmic Service</a>
+      <span class="footer-separator">•</span>
+      <a href="#governance" id="open-governance-link">🛡️ Model Risk Governance</a>
+      <span class="footer-separator">•</span>
+      <a href="#disclaimers" id="open-disclaimers-link">⚖️ Regulatory Disclosures</a>
+    </div>
+    <div class="footer-copy">
+      © 2026 SignalForge Quantitative Research — Engineered with Mathematical Rigor & Zero Lookahead Bias. All Rights Reserved.
+    </div>
+  </footer>
+
+</div>
+
+<!-- "Made with AI" Floating Pill Tag -->
+<div class="made-with-ai-badge" id="made-with-ai-badge">
+  <span class="ai-sparkle">✨</span>
+  <span>Made with Advanced AI Agent Desk</span>
+  <span class="ai-pulse-dot"></span>
+</div>
+
+<!-- Privacy Policy & Terms Modal Popup -->
+<div class="modal-overlay" id="legal-modal">
+  <div class="modal-card">
+    <div class="modal-header">
+      <div class="modal-title" id="modal-title-text">🔒 Privacy Policy & Algorithmic Terms</div>
+      <button class="modal-close-btn" id="close-modal-btn">&times;</button>
+    </div>
+    <div class="modal-body" id="modal-body-content">
+      <h3>1. Algorithmic Privacy & Data Sovereignty</h3>
+      <p>SignalForge respects the privacy of your quantitative feature formulations, factor models, and alpha signals. All in-fold cross-validation computations occur locally or on your sovereign sandboxed cloud runners.</p>
+      
+      <h3>2. Model Governance & Non-Lookahead Warranty</h3>
+      <p>Users warrant that all input feature definitions are scale-free and strictly lagged at t-1 relative to next-open execution at t. The Skeptic engine enforces automated gating against future-shuffled data contamination.</p>
+      
+      <h3>3. Statutory Fee Disclosures</h3>
+      <p>All paper trading computations incorporate realistic Indian statutory charges (13.61 bps round-turn drag). Paper returns do not account for liquidity black swans or broker API outages.</p>
+      
+      <h3>4. Artificial Intelligence & Automated Agents</h3>
+      <p>This dashboard and its associated agent roles (Chief, Quant, Skeptic, News, Scout, Risk Manager) operate under human oversight. LLM outputs are probabilistic and hard-gated by the deterministic verification suite.</p>
+    </div>
+  </div>
 </div>
 
 <script src="./web/app.js"></script>

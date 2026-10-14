@@ -253,3 +253,124 @@ function triggerQuantStep() {
     consoleEl.scrollTop = consoleEl.scrollHeight;
   }
 }
+
+// ==========================================================================
+// SCROLL-TRIGGERED 3D REVEAL ANIMATIONS (INTERSECTION OBSERVER)
+// ==========================================================================
+function initScrollAnimations() {
+  const elements = document.querySelectorAll('.scroll-reveal');
+  if (!elements.length) return;
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  elements.forEach(el => observer.observe(el));
+}
+
+// ==========================================================================
+// CONDITIONS ACCORDION TOGGLE
+// ==========================================================================
+function initConditionsAccordion() {
+  const toggleBtn = document.getElementById('toggle-conditions-btn');
+  const body = document.getElementById('conditions-body');
+  const arrow = document.getElementById('accordion-arrow-icon');
+  
+  if (toggleBtn && body && arrow) {
+    toggleBtn.addEventListener('click', () => {
+      const isOpen = body.classList.contains('open');
+      if (isOpen) {
+        body.classList.remove('open');
+        arrow.classList.remove('rotated');
+      } else {
+        body.classList.add('open');
+        arrow.classList.add('rotated');
+      }
+    });
+  }
+}
+
+// ==========================================================================
+// PRIVACY POLICY & TERMS MODAL POPUP
+// ==========================================================================
+function initLegalModal() {
+  const modal = document.getElementById('legal-modal');
+  const closeBtn = document.getElementById('close-modal-btn');
+  const modalTitle = document.getElementById('modal-title-text');
+  
+  const openPrivacy = document.getElementById('open-privacy-link');
+  const openTerms = document.getElementById('open-terms-link');
+  const openGov = document.getElementById('open-governance-link');
+  const openDisc = document.getElementById('open-disclaimers-link');
+  const aiBadge = document.getElementById('made-with-ai-badge');
+
+  function openModal(title) {
+    if (modalTitle) modalTitle.textContent = title;
+    if (modal) modal.classList.add('active');
+  }
+
+  function closeModal() {
+    if (modal) modal.classList.remove('active');
+  }
+
+  if (openPrivacy) openPrivacy.addEventListener('click', (e) => { e.preventDefault(); openModal('🔒 Privacy Policy & Algorithmic Sovereignty'); });
+  if (openTerms) openTerms.addEventListener('click', (e) => { e.preventDefault(); openModal('📜 Terms of Algorithmic Service'); });
+  if (openGov) openGov.addEventListener('click', (e) => { e.preventDefault(); openModal('🛡️ Model Risk Governance Protocol'); });
+  if (openDisc) openDisc.addEventListener('click', (e) => { e.preventDefault(); openModal('⚖️ Regulatory & Statutory Disclosures'); });
+  if (aiBadge) aiBadge.addEventListener('click', () => { openModal('✨ Artificial Intelligence & Agent Desk Disclosures'); });
+
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+  }
+}
+
+// ==========================================================================
+// HERO CTA SMOOTH SCROLL BUTTONS
+// ==========================================================================
+function initHeroButtons() {
+  const ctaBtn = document.getElementById('hero-cta-btn');
+  const condBtn = document.getElementById('hero-conditions-btn');
+  
+  if (ctaBtn) {
+    ctaBtn.addEventListener('click', () => {
+      const target = document.getElementById('signals-section');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }
+
+  if (condBtn) {
+    condBtn.addEventListener('click', () => {
+      const condSection = document.getElementById('conditions-accordion-section');
+      const body = document.getElementById('conditions-body');
+      const arrow = document.getElementById('accordion-arrow-icon');
+      if (condSection) {
+        condSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (body && !body.classList.contains('open')) {
+          body.classList.add('open');
+          if (arrow) arrow.classList.add('rotated');
+        }
+      }
+    });
+  }
+}
+
+// Initialize interactive elements after DOM loads
+document.addEventListener('DOMContentLoaded', () => {
+  initScrollAnimations();
+  initConditionsAccordion();
+  initLegalModal();
+  initHeroButtons();
+});

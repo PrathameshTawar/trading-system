@@ -2,7 +2,14 @@ from __future__ import annotations
 
 from pathlib import Path
 
-import yaml
+def _get_yaml():
+    try:
+        import yaml
+        return yaml
+    except ModuleNotFoundError as e:
+        raise RuntimeError(
+            "PyYAML is required for registry YAML loading; add 'PyYAML' to your project dependencies."
+        ) from e
 
 
 class FeatureRegistry:
@@ -15,6 +22,7 @@ class FeatureRegistry:
     def _load_specs(self) -> list[dict]:
         if not self.config_path.exists():
             return []
+        yaml = _get_yaml()
         with self.config_path.open("r", encoding="utf-8") as fh:
             payload = yaml.safe_load(fh) or {}
         features = payload.get("features", [])
