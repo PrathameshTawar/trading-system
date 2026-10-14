@@ -1,0 +1,316 @@
+{
+  "starting_cash": 1000000.0,
+  "cash": 1000000.0,
+  "positions": {},
+  "pending": {
+    "signal_date": "2026-10-01",
+    "targets": [
+      {
+        "symbol": "ADANIENT",
+        "weight": 0.0,
+        "prediction": 0.0018545080253103054
+      },
+      {
+        "symbol": "ADANIPORTS",
+        "weight": 0.0,
+        "prediction": 0.0018545080253103054
+      },
+      {
+        "symbol": "APOLLOHOSP",
+        "weight": 0.0,
+        "prediction": 0.0017462173156690866
+      },
+      {
+        "symbol": "ASIANPAINT",
+        "weight": 0.0,
+        "prediction": 0.0018683166629581062
+      },
+      {
+        "symbol": "AXISBANK",
+        "weight": 0.0,
+        "prediction": 0.0017281372850635724
+      },
+      {
+        "symbol": "BAJAJ-AUTO",
+        "weight": 0.11216928197198883,
+        "prediction": 0.003470094843702693
+      },
+      {
+        "symbol": "BAJFINANCE",
+        "weight": 0.0,
+        "prediction": 0.0019449511349192334
+      },
+      {
+        "symbol": "BEL",
+        "weight": 0.0,
+        "prediction": 0.0018545080253103054
+      },
+      {
+        "symbol": "BHARTIARTL",
+        "weight": 0.0,
+        "prediction": 0.0018076643547849523
+      },
+      {
+        "symbol": "BPCL",
+        "weight": 0.0,
+        "prediction": 0.0019449511349192334
+      },
+      {
+        "symbol": "BRITANNIA",
+        "weight": 0.0,
+        "prediction": 0.0020838996780604257
+      },
+      {
+        "symbol": "CIPLA",
+        "weight": 0.0,
+        "prediction": 0.0018162286391961463
+      },
+      {
+        "symbol": "COALINDIA",
+        "weight": 0.0,
+        "prediction": 0.0018162286391961463
+      },
+      {
+        "symbol": "DIVISLAB",
+        "weight": 0.0,
+        "prediction": 0.0022454270114794133
+      },
+      {
+        "symbol": "DRREDDY",
+        "weight": 0.0,
+        "prediction": 0.0017348972937458595
+      },
+      {
+        "symbol": "EICHERMOT",
+        "weight": 0.0,
+        "prediction": 0.0018100636882230272
+      },
+      {
+        "symbol": "GODREJCP",
+        "weight": 0.2623037002114464,
+        "prediction": 0.008114687921557517
+      },
+      {
+        "symbol": "GRASIM",
+        "weight": 0.0,
+        "prediction": 0.0018100636882230272
+      },
+      {
+        "symbol": "HCLTECH",
+        "weight": 0.0,
+        "prediction": 0.0016293762574091084
+      },
+      {
+        "symbol": "HDFCBANK",
+        "weight": 0.0,
+        "prediction": 0.0018974396039221064
+      },
+      {
+        "symbol": "HDFCLIFE",
+        "weight": 0.0,
+        "prediction": 0.0017696465414790852
+      },
+      {
+        "symbol": "HEROMOTOCO",
+        "weight": 0.0,
+        "prediction": 0.0018545080253103054
+      },
+      {
+        "symbol": "HINDALCO",
+        "weight": 0.0,
+        "prediction": 0.0018545080253103054
+      },
+      {
+        "symbol": "HINDUNILVR",
+        "weight": 0.0,
+        "prediction": 0.002183187147001668
+      },
+      {
+        "symbol": "ICICIBANK",
+        "weight": 0.0,
+        "prediction": 0.0018162286391961463
+      },
+      {
+        "symbol": "ICICIPRULI",
+        "weight": 0.2083950631105844,
+        "prediction": 0.0064469578590484605
+      },
+      {
+        "symbol": "INFY",
+        "weight": 0.0,
+        "prediction": 0.0020794254906078705
+      },
+      {
+        "symbol": "ITC",
+        "weight": 0.0,
+        "prediction": 0.0022890347205737752
+      },
+      {
+        "symbol": "JSWSTEEL",
+        "weight": 0.0,
+        "prediction": 0.0019043252695157859
+      },
+      {
+        "symbol": "KOTAKBANK",
+        "weight": 0.0,
+        "prediction": 0.001518025614773479
+      },
+      {
+        "symbol": "LT",
+        "weight": 0.0,
+        "prediction": 0.0020489348858215182
+      },
+      {
+        "symbol": "M&M",
+        "weight": 0.0,
+        "prediction": 0.002171005075185057
+      },
+      {
+        "symbol": "MARUTI",
+        "weight": 0.26461379689803183,
+        "prediction": 0.008186153606811495
+      },
+      {
+        "symbol": "NESTLEIND",
+        "weight": 0.0,
+        "prediction": 0.002031012570604967
+      },
+      {
+        "symbol": "NTPC",
+        "weight": 0.0,
+        "prediction": 0.0019054797424777573
+      },
+      {
+        "symbol": "ONGC",
+        "weight": 0.0,
+        "prediction": 0.0020422825794619705
+      },
+      {
+        "symbol": "PIDILITIND",
+        "weight": 0.0,
+        "prediction": 0.0019043252695157859
+      },
+      {
+        "symbol": "POWERGRID",
+        "weight": 0.0,
+        "prediction": 0.002034202238200844
+      },
+      {
+        "symbol": "RELIANCE",
+        "weight": 0.0,
+        "prediction": 0.0022749888260873426
+      },
+      {
+        "symbol": "SBILIFE",
+        "weight": 0.0,
+        "prediction": 0.0017348394646291402
+      },
+      {
+        "symbol": "SBIN",
+        "weight": 0.0,
+        "prediction": 0.0020489348858215182
+      },
+      {
+        "symbol": "SHRIRAMFIN",
+        "weight": 0.0,
+        "prediction": 0.0018144363137086385
+      },
+      {
+        "symbol": "SUNPHARMA",
+        "weight": 0.0,
+        "prediction": 0.0018162286391961463
+      },
+      {
+        "symbol": "TATACONSUM",
+        "weight": 0.0,
+        "prediction": 0.0020342424409063196
+      },
+      {
+        "symbol": "TATASTEEL",
+        "weight": 0.0,
+        "prediction": 0.0018162286391961463
+      },
+      {
+        "symbol": "TCS",
+        "weight": 0.0,
+        "prediction": 0.0016071278311029697
+      },
+      {
+        "symbol": "TECHM",
+        "weight": 0.0,
+        "prediction": 0.0016965600785149803
+      },
+      {
+        "symbol": "TITAN",
+        "weight": 0.0,
+        "prediction": 0.0017462173156690866
+      },
+      {
+        "symbol": "ULTRACEMCO",
+        "weight": 0.0,
+        "prediction": 0.0019449511349192334
+      },
+      {
+        "symbol": "WIPRO",
+        "weight": 0.15251815780794853,
+        "prediction": 0.004718336996331687
+      }
+    ]
+  },
+  "peak_equity": 1000000.0,
+  "paused": false,
+  "pause_reason": "",
+  "cost_bps": 10.0,
+  "history": [
+    {
+      "date": "2026-10-01",
+      "equity": 1000000.0,
+      "cash": 1000000.0,
+      "drawdown": 0.0,
+      "paused": false,
+      "positions": {}
+    },
+    {
+      "date": "2026-10-01",
+      "equity": 1000000.0,
+      "cash": 1000000.0,
+      "drawdown": 0.0,
+      "paused": false,
+      "positions": {}
+    },
+    {
+      "date": "2026-10-01",
+      "equity": 1000000.0,
+      "cash": 1000000.0,
+      "drawdown": 0.0,
+      "paused": false,
+      "positions": {}
+    },
+    {
+      "date": "2026-10-01",
+      "equity": 1000000.0,
+      "cash": 1000000.0,
+      "drawdown": 0.0,
+      "paused": false,
+      "positions": {}
+    },
+    {
+      "date": "2026-10-01",
+      "equity": 1000000.0,
+      "cash": 1000000.0,
+      "drawdown": 0.0,
+      "paused": false,
+      "positions": {}
+    },
+    {
+      "date": "2026-10-01",
+      "equity": 1000000.0,
+      "cash": 1000000.0,
+      "drawdown": 0.0,
+      "paused": false,
+      "positions": {}
+    }
+  ],
+  "last_equity": 1000000.0,
+  "last_session": "2026-10-01"
+}
